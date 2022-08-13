@@ -1,0 +1,7 @@
+name: MCraft
+version: '1.0-SNAPSHOT'
+main: com.dontkonwdream.mcraft.mcraft.MCraft
+api-version: 1.18
+authors: [ JiuYue ]
+description: 现代化的工作台
+website: https://dontkonwdream.com
