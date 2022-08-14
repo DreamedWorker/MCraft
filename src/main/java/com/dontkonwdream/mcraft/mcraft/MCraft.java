@@ -12,6 +12,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
@@ -25,22 +26,23 @@ public final class MCraft extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(this, this);
         Bukkit.getPluginManager().registerEvents(new TestListener(), this);  //定义外部事件监听器————成功
         Objects.requireNonNull(Bukkit.getPluginCommand("dreamtest")).setExecutor(this);
+        addCustomRecipes(); //添加自定义的合成表
         System.out.println("服务器启动");
     }
+
+    //目前只能基于合成台添加配方，在考虑能否自建一个独立于官方的合成机制
+    private void addCustomRecipes() { //向服务器添加
+        //准备测试能否加入自定义的物品进入
+        ShapedRecipe recipe = new ShapedRecipe(new ItemStack(Material.EMERALD));  //这个方法被弃用，准备新的方法使用
+        recipe.shape("xxx", "x x", "xxx");
+        recipe.setIngredient('x', Material.GOLD_INGOT);
+        getServer().addRecipe(recipe);
+    }
+
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-    }
-
-    @EventHandler // 这个注解告诉Bukkit这个方法正在监听某个事件
-    public void onPlayerJoin(PlayerJoinEvent e) { // 玩家登录服务器就会调用这个方法
-        System.out.println("玩家" + e.getPlayer().getName() + "加入了游戏");
-        Inventory inv = Bukkit.createInventory(e.getPlayer(), 9, "欢迎你");
-        ItemStack item_bk = new ItemStack(Material.IRON_DOOR);
-        for (int i = 0; i < 9; i ++){
-            inv.setItem(i, item_bk);
-        }
-        e.getPlayer().openInventory(inv);
+        getServer().clearRecipes();  //删除自定义合成台
     }
 
     @EventHandler
@@ -52,11 +54,7 @@ public final class MCraft extends JavaPlugin implements Listener {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (label.equalsIgnoreCase("dreamtest")){
-            if (sender instanceof Player){
-                sender.sendMessage("仅限玩家使用");
-            } else {
-                sender.sendMessage("使用成功");
-            }
+            sender.sendMessage("使用成功");
         }
         return true;
     }
