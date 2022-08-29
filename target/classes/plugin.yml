@@ -1,5 +1,5 @@
 name: DCrafting
-version: '${project.version}'
+version: '1.0-SNAPSHOT'
 main: org.dream.crafting.dcrafting.DCrafting
 api-version: 1.18
 authors: [ BlueDream ]
