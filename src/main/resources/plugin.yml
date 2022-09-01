@@ -3,5 +3,10 @@ version: '${project.version}'
 main: org.dream.crafting.dcrafting.DCrafting
 api-version: 1.18
 authors: [ BlueDream ]
-description: An ehchanced crafting table for Minecraft Java Edition.
+description: An enhanced crafting table for Minecraft Java Edition.
 website: https://dreamedworker.github.io
+commands:
+  dreampath:
+    description: Tell users the root path of this plugin.
+    usage: /dreampath
+    permission-message: You cannot execute this command.

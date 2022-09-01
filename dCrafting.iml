@@ -52,5 +52,9 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.ow2.asm:asm-commons:9.2" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.ow2.asm:asm-tree:9.2" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.ow2.asm:asm-analysis:9.2" level="project" />
+    <orderEntry type="library" name="Maven: cn.hutool:hutool-all:5.8.5" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:fastjson:2.0.12" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba.fastjson2:fastjson2-extension:2.0.12" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba.fastjson2:fastjson2:2.0.12" level="project" />
   </component>
 </module>
